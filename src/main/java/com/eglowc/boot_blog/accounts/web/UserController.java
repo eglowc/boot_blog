@@ -27,6 +27,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
  */
 @Slf4j
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -43,7 +44,7 @@ public class UserController {
      *
      * @return
      */
-    @RequestMapping(value = "/users")
+    @RequestMapping(method = GET)
     public ResponseEntity users() {
         String message = "Hello Libo.accounts";
         return new ResponseEntity<>(message, HttpStatus.OK);
@@ -56,7 +57,7 @@ public class UserController {
      * @param result
      * @return
      */
-    @RequestMapping(value = "/users", method = PUT)
+    @RequestMapping(method = PUT)
     public ResponseEntity createUser(@RequestBody @Valid UserDto.Create create,
                                      BindingResult result) {
 
