@@ -1,0 +1,7 @@
+spring:
+  h2.console.enabled: true
+
+logging:
+  file: logs/boot_blog.log
+  level:
+    com.ex2i: DEBUG
