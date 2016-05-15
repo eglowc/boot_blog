@@ -1,4 +1,5 @@
-# default 환경
+# local 개발환경
+# h2 database
 
 spring:
   h2.console.enabled: true
@@ -13,6 +14,6 @@ spring:
     ddl-auto: create-drop
 
 logging:
-  file: logs/boot_blog.log
+  file: logs/boot_blog-local.log
   level:
     com.ex2i: DEBUG

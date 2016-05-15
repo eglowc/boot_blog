@@ -26,3 +26,4 @@ lib/
 
 # etc
 logs/
+tmp/

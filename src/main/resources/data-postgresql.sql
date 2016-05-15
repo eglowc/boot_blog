@@ -1,0 +1,1 @@
+INSERT INTO USER (USER_NAME, USER_EMAIL, USER_NICK_NAME, PASSWORD, JOINED, UPDATED) VALUES ('imPostgres', 'hello@eglowc.com', 'eglowc', 'password1234', now(), now());
