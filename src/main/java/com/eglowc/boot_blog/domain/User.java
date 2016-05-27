@@ -1,4 +1,4 @@
-package com.eglowc.boot_blog.accounts.domain;
+package com.eglowc.boot_blog.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

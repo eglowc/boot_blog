@@ -1,4 +1,4 @@
-package com.eglowc.boot_blog.accounts;
+package com.eglowc.boot_blog.common.exception;
 
 
 import lombok.AllArgsConstructor;

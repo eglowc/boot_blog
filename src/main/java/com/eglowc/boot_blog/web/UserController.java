@@ -1,9 +1,9 @@
-package com.eglowc.boot_blog.accounts.web;
+package com.eglowc.boot_blog.web;
 
-import com.eglowc.boot_blog.accounts.UserDto;
-import com.eglowc.boot_blog.accounts.UserDuplicatedException;
-import com.eglowc.boot_blog.accounts.domain.User;
-import com.eglowc.boot_blog.accounts.service.UserService;
+import com.eglowc.boot_blog.dto.UserDto;
+import com.eglowc.boot_blog.common.exception.UserDuplicatedException;
+import com.eglowc.boot_blog.domain.User;
+import com.eglowc.boot_blog.service.UserService;
 import com.eglowc.boot_blog.common.ErrorInfos;
 import com.eglowc.boot_blog.common.utilities.ResponseEntityUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -58,11 +58,11 @@ public class UserController {
      * @return
      */
     @RequestMapping(method = PUT)
-    public ResponseEntity createUser(@RequestBody @Valid UserDto.Create create,
+    public ResponseEntity createUser(@RequestBody @Valid final UserDto.Create create,
                                      BindingResult result) {
 
         if (result.hasErrors()) {
-            ErrorInfos errorInfos = new ErrorInfos(
+            final ErrorInfos errorInfos = new ErrorInfos(
                     "잘못된 요청입니다.",
                     "bad.request",
                     result.getFieldErrors()
@@ -71,7 +71,7 @@ public class UserController {
             return entityUtil.getResponse(errorInfos, false, HttpStatus.BAD_REQUEST);
         }
 
-        User createdUser = userService.createUser(create);
+        final User createdUser = userService.createUser(create);
 
         return entityUtil.getSuccess(modelMapper.map(createdUser, User.class), HttpStatus.CREATED);
     }

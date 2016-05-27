@@ -1,9 +1,9 @@
-package com.eglowc.boot_blog.accounts.service;
+package com.eglowc.boot_blog.service;
 
-import com.eglowc.boot_blog.accounts.UserDto;
-import com.eglowc.boot_blog.accounts.UserDuplicatedException;
-import com.eglowc.boot_blog.accounts.UserRepository;
-import com.eglowc.boot_blog.accounts.domain.User;
+import com.eglowc.boot_blog.common.exception.UserDuplicatedException;
+import com.eglowc.boot_blog.domain.User;
+import com.eglowc.boot_blog.dto.UserDto;
+import com.eglowc.boot_blog.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,18 +26,16 @@ public class UserService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public User createUser(UserDto.Create dto) {
-
-        User user = modelMapper.map(dto, User.class);
-
-        String userName = dto.getUserName();
+    public User createUser(final UserDto.Create dto) {
+        final User user = modelMapper.map(dto, User.class);
+        final String userName = dto.getUserName();
 
         if (userRepository.findByUserName(userName) != null) {
             log.error("user duplicated exception. {}", userName);
             throw new UserDuplicatedException(userName);
         }
 
-        Date now = new Date();
+        final Date now = new Date();
         user.setJoined(now);
         user.setUpdated(now);
 
