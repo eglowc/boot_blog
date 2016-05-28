@@ -7,8 +7,10 @@ import org.springframework.http.ResponseEntity;
 
 /**
  * Created by hclee on 2016-05-12.
+ *
+ * @author eglowc
  */
-
+@Deprecated
 public class ResponseEntityUtil<T> {
 
     @Data
