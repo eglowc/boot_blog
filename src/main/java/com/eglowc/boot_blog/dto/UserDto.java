@@ -10,6 +10,8 @@ import java.util.Date;
 
 /**
  * Created by hclee on 2016-05-11.
+ *
+ * @author eglowc
  */
 public class UserDto {
 
@@ -38,9 +40,9 @@ public class UserDto {
         private String userName;
         private String userEmail;
         private String userNickName;
-        @JsonFormat(pattern="yyyy-MM-dd HH:MM:ss")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:MM:ss")
         private Date joined;
-        @JsonFormat(pattern="yyyy-MM-dd HH:MM:ss")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:MM:ss")
         private Date updated;
 
     }

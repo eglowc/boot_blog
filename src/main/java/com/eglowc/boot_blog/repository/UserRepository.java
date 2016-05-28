@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Created by hclee on 2016-05-11.
+ *
+ * @author eglowc
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 

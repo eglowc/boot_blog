@@ -13,6 +13,8 @@ import java.util.List;
 
 /**
  * Created by hclee on 2016-05-11.
+ *
+ * @author eglowc
  */
 @Data
 public class ErrorInfos {
@@ -39,9 +41,9 @@ public class ErrorInfos {
     /**
      * Valid FieldError 를 처리함
      *
-     * @param errorMessage
-     * @param errorCode
-     * @param fieldErrors
+     * @param errorMessage 에러 메시지
+     * @param errorCode    에러 코드
+     * @param fieldErrors  필드 검증에러
      */
     public ErrorInfos(String errorMessage, String errorCode, List<FieldError> fieldErrors) {
         this.errorMessage = errorMessage;
@@ -49,15 +51,17 @@ public class ErrorInfos {
 
         if (fieldErrors != null) {
             this.fieldErrors = new ArrayList<>();
-            fieldErrors.forEach(e -> this.fieldErrors.add(new FieldErrorInfo(e.getField(), e.getRejectedValue().toString(), e.getDefaultMessage())));
+            fieldErrors.forEach(e -> this.fieldErrors
+                            .add(new FieldErrorInfo(e.getField(), String.valueOf(e.getRejectedValue()), e.getDefaultMessage()))
+            );
         }
     }
 
     /**
      * Valid FieldError 처리안함
      *
-     * @param errorMessage
-     * @param errorCode
+     * @param errorMessage 에러 메시지
+     * @param errorCode    에러 코드
      */
     public ErrorInfos(String errorMessage, String errorCode) {
         this(errorMessage, errorCode, null);
